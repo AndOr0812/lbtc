@@ -1,0 +1,19 @@
+{
+    "name": "ndlovu28/lbtc",
+    "description": "Laravel package to communicate with localbitcoins.com API",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wilson Ndlovu",
+            "email": "ndlovu28@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Ndlovu28\\Lbtc\\": "src/"
+        }
+    },
+    "require": {}
+}
