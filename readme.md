@@ -20,22 +20,22 @@ This package conects localbitcoins.com API. With this package you can:
 
 To install this package run the commands bellow.
 
-```
+```php
 composer require ndlovu28/lbtc
 ```
 
 Register the application in *config/app.php* by appending the line bellow in prividers section
-```
+```php
 Ndlovu28\Lbtc\LbtcServiceProvider::class,
 ```
 
 Optionally you can add the bellow aliases section to call Lbtc in a short form.
-```
+```php
 'Lbtc' => Ndlovu28\Lbtc\Lbtc::class,
 ``` 
 
 Load the database with the command bellow
-```
+```php
 php artisan migrate
 ```
 
@@ -44,23 +44,22 @@ php artisan migrate
 ---
 
 In your controller or class add the line bellow if you added aliases
-```
+```php
 use Lbtc;
 ```
 Or this if you did not add aliases
-```
+```php
 use Ndlovu28/Lbtc/Lbtc;
 ```
 
 Initialize the class with your localbitcoins *key* and *secret*
-
-```
+```php
 $lbtc = new Lbtc();
 $lbtc->config($key, $secret);
 ```
 
 #### Check Balance
-```
+```php
 $balance = $lbtc->checkBalance();
 ```
 
