@@ -1,5 +1,4 @@
 ## Localbitcoins.com API for Laravel
----
 
 This package conects localbitcoins.com API. With this package you can:
  - Query Balance for your wallet
