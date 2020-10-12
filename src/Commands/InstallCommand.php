@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Ndlovu28\Lbtc\Commands;
 
 use Illuminate\Console\Command;
 
