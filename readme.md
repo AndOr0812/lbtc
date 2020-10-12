@@ -24,3 +24,21 @@ Optionally you can add the bellow aliases section to call Lbtc in a short form.
 ```
 'Lbtc' => Ndlovu28\Lbtc\Lbtc::class,
 ``` 
+
+### Usage
+
+In your controller or class add the line bellow if you added aliases
+```
+use Lbtc;
+```
+Or this if you did not add aliases
+```
+use Ndlovu28/Lbtc/Lbtc;
+```
+
+Initialize the class with your localbitcoins *key* and *secret*
+
+```
+$lbtc = new Lbtc();
+$lbtc->config($key, $secret);
+```
