@@ -1,7 +1,7 @@
 {
     "name": "ndlovu28/lbtc",
     "description": "Laravel package to communicate with localbitcoins.com API",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
