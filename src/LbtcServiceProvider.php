@@ -24,7 +24,7 @@ class LbtcServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->commands([
-            Ndlovu28\Lbtc\Commands\InstallCommand::class
+            Commands\InstallCommand::class
         ]);
     }
 }
