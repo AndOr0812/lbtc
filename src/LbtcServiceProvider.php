@@ -26,5 +26,6 @@ class LbtcServiceProvider extends ServiceProvider
         $this->commands([
             Commands\InstallCommand::class
         ]);
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 }

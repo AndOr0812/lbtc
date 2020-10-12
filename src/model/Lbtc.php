@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Ndlovu28\Lbtc\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
