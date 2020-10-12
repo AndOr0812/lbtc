@@ -9,10 +9,14 @@ This package conects localbitcoins.com API. With this package you can:
  - Get chat message from the buyer 
 
 ### Requirements
+
+***
+
  - PHP 7.1+
  - Composer
 
 ### Installation
+
 ***
 
 To install this package run the commands bellow.
@@ -37,6 +41,7 @@ php artisan migrate
 ```
 
 ### Usage
+
 ***
 
 In your controller or class add the line bellow if you added aliases
