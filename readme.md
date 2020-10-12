@@ -49,7 +49,7 @@ use Lbtc;
 ```
 Or this if you did not add aliases
 ```php
-use Ndlovu28/Lbtc/Lbtc;
+use Ndlovu28\Lbtc\Lbtc;
 ```
 
 Initialize the class with your localbitcoins *key* and *secret*
@@ -61,6 +61,12 @@ $lbtc->config($key, $secret);
 #### Check Balance
 ```php
 $balance = $lbtc->checkBalance();
+```
+
+### Get an andvert
+Get advert with a matching amount to sell bitcoin for, the type of transaction, and location information. This will return the advert id if the found or false if not found
+```php
+$ad_id = $lbtc->getBuyers('20000', 'm-pesa-tanzania-vodacom', 'Tanzania', 'TZ');
 ```
 
 
