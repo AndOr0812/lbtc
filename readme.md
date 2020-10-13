@@ -77,10 +77,13 @@ The above will return *contact_id* which can be used to send messages to the buy
 ```php
 //Send mesaage to the buyer
 $result = $lbtc->sendMessage($contact_id, $message);
+
 //Get messages array from the buyer
 $messages = $lbtc->getMessages($contact_id);
+
 //Check the status of the trade, return true if complete of false if its still pending payment
 $status = $lbtc-<checkTrade($contact_id);
+
 //Release bitcoins once the payment has been marked as PAID: Retunrns boolean for status
 $lbtc->releseTrade($contact_id)
 ```
