@@ -124,6 +124,7 @@ class Lbtc{
 
 					return $arr;
 				}
+				Log::error($res);
 			}
 		}
 		return false;
