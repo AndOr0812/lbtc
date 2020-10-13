@@ -69,8 +69,18 @@ Get advert with a matching amount to sell bitcoin for, the type of transaction, 
 $ad_id = $lbtc->getBuyers('20000', 'm-pesa-tanzania-vodacom', 'Tanzania', 'TZ');
 ```
 #### Initialize trade
-Start a trade with the given ad_id from get advert query. See trx_data [here](https://localbitcoins.com/api-docs/online-buy-fields/)
+Start a trade with the given ad_id from get advert query. See [here](https://localbitcoins.com/api-docs/online-buy-fields/) for *trx_data* array for the required fields for diiiferent payment methods.
+```php
+$contact_id = $lbtc->initTrade($ad_id, $amount, $message, $trx_data);
 ```
-$lbtc->initTrade($ad_id, $amount, $message, $trx_data)
+The above will return *contact_id* which can be used to send messages to the buyer and check status of the trade.
+```php
+//Send mesaage to the buyer
+$result = $lbtc->sendMessage($contact_id, $message);
+//Get messages array from the buyer
+$messages = $lbtc->getMessages($contact_id);
+//Check the status of the trade, return true if complete of false if its still pending payment
+$status = $lbtc-<checkTrade($contact_id);
+//Release bitcoins once the payment has been marked as PAID: Retunrns boolean for status
+$lbtc->releseTrade($contact_id)
 ```
-
