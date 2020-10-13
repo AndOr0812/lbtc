@@ -63,10 +63,14 @@ $lbtc->config($key, $secret);
 $balance = $lbtc->checkBalance();
 ```
 
-### Get an andvert
+#### Get an andvert
 Get advert with a matching amount to sell bitcoin for, the type of transaction, and location information. This will return the advert id if the found or false if not found
 ```php
 $ad_id = $lbtc->getBuyers('20000', 'm-pesa-tanzania-vodacom', 'Tanzania', 'TZ');
 ```
-
+#### Initialize trade
+Start a trade with the given ad_id from get advert query. See trx_data [here](https://localbitcoins.com/api-docs/online-buy-fields/)
+```
+$lbtc->initTrade($ad_id, $amount, $message, $trx_data)
+```
 
