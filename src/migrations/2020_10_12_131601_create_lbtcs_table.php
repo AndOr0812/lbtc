@@ -19,8 +19,8 @@ class CreateLbtcsTable extends Migration
             $table->string('ad_id');
             $table->string('contact_id');
             $table->string('amount');
-            $table->string('currency');
-            $table->string('status');
+            $table->string('currency')->nullable();
+            $table->enum('status', ['pending', 'cancelled', 'proccessed'])->default('pending');
             $table->timestamps();
         });
     }

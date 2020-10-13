@@ -4,6 +4,8 @@ namespace Ndlovu28\Lbtc;
 use Ndlovu28\Lbtc\LbtcClient;
 use Log;
 
+use Ndlovu28\Lbtc\Model\Lbtc AS LbtcData;
+
 class Lbtc{
 	private $key;
 	private $secret;
@@ -92,7 +94,7 @@ class Lbtc{
 		}
 	}
 
-	function initTrade($ad_id, $amount, $message, $trx_data){
+	function initTrade($ad_id, $amount, $message, $trx_data, $trx_id=null, $currency=null){
 		Log::info("Starting trade");
 		$endpoint = '/api/contact_create/'.$ad_id.'/';
 		$rec = array();
@@ -106,7 +108,21 @@ class Lbtc{
 			if(isset($res['data']['message'])){
 				if($res['data']['message'] == "OK!"){
 					$contact_id = $res['data']['contact_id'];
-					return $contact_id;
+
+					$lbtc = LbtcData::create([
+						'trx_id'=>$trx_id,
+						'ad_id'=>$ad_id,
+						'contact_id'=>$contact_id,
+						'amount'=>$amount,
+						'currency'=>$currency,
+						'status'=>'pending'
+					]);
+
+					$arr = array();
+					$arr['contact_id'] = $contact_id;
+					$arr['record_id'] = $lbtc->id;
+
+					return $arr;
 				}
 			}
 		}
