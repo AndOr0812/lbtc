@@ -175,12 +175,7 @@ class Lbtc{
 
 		$data = $res['data'];
 		
-		if($data['payment_completed_at'] != null){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return $data;
 	}
 
 	function releseTrade($contact_id){
