@@ -5,6 +5,7 @@ use Ndlovu28\Lbtc\LbtcClient;
 use Log;
 
 use Ndlovu28\Lbtc\Model\Lbtc AS LbtcData;
+use Ndlovu28\Lbtc\Model\LbtcSendBtc;
 
 class Lbtc{
 	private $key;
@@ -190,5 +191,37 @@ class Lbtc{
 			return true;
 		}
 		return false;
+	}
+
+	function sendBtcToAddress($address, $amount, $trx_id=null){
+		$endpoint = "/api/wallet-send/";
+
+		$rec = array();
+		$data = array();
+		$data['address'] = $address;
+		$data['amount'] = $amount;
+
+		$res = $this->client->send($endpoint, 'post', $rec, $data);
+		if(isset($res['data'])){
+			$data = $res['data'];
+			if($data['message'] == "Money is being sent"){
+				LbtcSendBtc::create([
+					'trx_id'=>$trx_id,
+					'amount'=>$amount,
+					'to_address'=>$address,
+					'status'=>'proccessed'
+				]);
+
+				return true;
+			}
+			else{
+				Log::error($data);
+				return false;
+			}
+		}
+		else{
+			Log::error($res);
+			return false;
+		}
 	}
 }
